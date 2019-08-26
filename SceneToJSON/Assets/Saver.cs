@@ -12,6 +12,9 @@ public class Props
 
 public class Saver : MonoBehaviour
 {
+    public string filepath = @"C:\Users\Kristian\Desktop\MSc Dissertation\MScDissertation\RTX_Dissertation\RTX_Dissertation\Props.json";
+    //public string filepath = @"C:\Users\Kristian\Desktop\MSc Dissertation\MScDissertation\RTX_Dissertation\RTX_Dissertation\Props.json"; -- TODO:: Uni filepath
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,10 @@ public class Saver : MonoBehaviour
             props.GameObjects.Add(info.prop);
         }
 
-        Debug.Log(JsonUtility.ToJson(props));
+        using (System.IO.StreamWriter file = new System.IO.StreamWriter(filepath, false))
+        {
+            file.WriteLine(JsonUtility.ToJson(props));
+        }
     }
 
     // Update is called once per frame
