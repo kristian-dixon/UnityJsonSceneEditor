@@ -59,7 +59,7 @@ public class PropInfo : MonoBehaviour
     {
         prop.Name = gameObject.name;
 
-        
+        Debug.Log(GetComponent<MeshFilter>().mesh.name);
 
         if(!isMetal)
             prop.Metal.ConstantBufferType = "";
